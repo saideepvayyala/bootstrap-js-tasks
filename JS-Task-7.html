@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task-7</title>
+    <style>
+        @keyframes myAnimation {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
+        }
+
+        #i1, #image1 {
+            width: 150px;
+            height: 150px;
+          margin:50px;
+            animation: myAnimation 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="i1"></div>
+    <img id="image1" src="./train.png" alt="Image">
+    <p><strong>Click the buttons below to handle animation</strong></p>
+    <button id="startButton" style="margin:40px;">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        const i1 = document.getElementById("i1");
+        const image1 = document.getElementById("image1");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+
+        let animationPaused = true;
+
+        startButton.addEventListener("click", () => {
+            if (animationPaused) {
+                i1.style.animationPlayState = "running";
+                image1.style.animationPlayState = "running";
+                animationPaused = false;
+            }
+        });
+
+        stopButton.addEventListener("click", () => {
+            i1.style.animationPlayState = "paused";
+            image1.style.animationPlayState = "paused";
+            animationPaused = true;
+        });
+    </script>
+</body>
+</html>
